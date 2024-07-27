@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Courseji Task 1</title>
+<style>
+    body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #1a0202;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    padding:5px;
+    text-align: left;
+}
+
+nav button{
+    display:flex;
+    padding: 10px 30px;
+    border-color: transparent;
+    background-color: #007BFF;;
+    color: white;
+    border-radius:3em;
+   
+    
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.home h3 {
+    color: #333;
+    font-size: 1.7em;
+    margin: 0px 80px 20px 80px;
+}
+.home h1{
+    font-size: 2em;
+}
+
+.home {
+    padding: 100px 50px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(75, 75, 75);
+}
+
+.home p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.home .button {
+    background-color: #fff;
+    color: #007BFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border-color: transparent;
+}
+
+.home .button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+#degree .container h2{
+    background-color: black;
+    color: white;
+    margin:0px 0px 70px 0px;
+    padding:20px;
+    font-size: 2em;
+}
+.degree-grid {
+    display: flex;
+    width:30%; 
+    gap:20px;
+    display:inline-block;
+    justify-content: center;
+    padding:20px;
+}
+
+.degree {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+#career .container h2{
+    background-color: black;
+    color: white;
+    margin:0px 0px 70px 0px;
+    padding:10px;
+    font-size: 1em;
+}
+#career .container .button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border-color: transparent;
+}
+
+#career .container .button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+#career .container {
+    font-size: 2em;
+    padding:20px;
+}
+#career .container p {
+    margin-top: 30px;
+    
+}
+.head{
+    font-size: 1em;
+    font-weight:bold;
+
+}
+#career .container .career-content{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;  
+}
+.career-content p{
+    font-size: large;
+}
+.career-content img{
+    height: 60px;
+    width: 60px;
+}
+#career .container .career-grid{
+    width:25%;
+    display:inline-block;
+    margin: 20px;
+}
+
+#feedback .container h2{
+ background-color: black;
+ color:white;
+ font-size: 1.5em;
+ padding:20px;
+}
+form{
+    margin:10px 300px;
+    justify-content: left;
+    background-color: white;
+    padding: 60px;
+    margin:80px 300px;
+    border-radius: 2em;
+}
+form input, form textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+form label{
+display: inline;
+}
+form button{
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border-color: transparent;
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+</style>
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    alert(`Thank you, ${name}! Your message has been sent.`);
+
+    event.target.reset();
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+</script></head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CourseStudy</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#degree">Online Degree</a></li>
+                    <li><a href="#career">Find a Career</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><button><a href="#">Join For Free</a></button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="home">
+        <div class="container">
+            <div class="home">
+                <h1>Learn how to code with Generative AI</h1>
+                <h3>Whether you're a developer, tech lead, or AI enthusiast-transform your
+                    skills with Generative AI course.</h3>
+            <button class="button">Enroll now</button>
+            </div>
+        </div>
+    </section>
+    <section id="degree">
+        <div class="container">
+            <h2>Online Degree</h2>
+            <div class="degree-grid">
+                <div class="degree">
+                    <h3>University of London</h3>
+                    <p><h4>Bachelor of Science in Computer Science</h4>
+                        <br><br>#29 in Top Universities in the U.K. (The Times and Sunday Times Good University Guide, 2023)
+                        <br><br>Application due September 9, 2024</p>
+                </div></div>
+                <div class="degree-grid">
+                    <div class="degree">
+                        <h3>Birla Institute of Technology & Science, Pilani</h3>
+                        <p><h4> Bachelor of Science in Computer Science</h4>
+                        <br><br>    Accredited by the National Assessment & Accreditation Council (NAAC) with 'A' grade
+                         <br><br>   Application due July 21, 2024                           
+                            </p>
+                    </div>
+            </div>
+            <div class="degree-grid">
+                <div class="degree">
+                    <h3>Georgetown University</h3>
+                    <p><h4>Bachelor of Arts in Liberal Studies</h4>
+                        <br>Ranked in the Top 25 Best National Universities in the U.S.(U.S. News & World Report, 2023)
+                        <br><br>Application due July 15, 2024
+                        </p>
+                </div>
+        </div></div>
+    </section>
+    <section id="career">
+        <div class="container">
+            <h2>Find a Career</h2>
+            <div class="career">
+                <p><span class="head">Take the first step toward your new career</span><br>
+                    Get professional-level training and earn a credential recognized by leading companies.</p><br>
+                <div class="career-grid">
+                    <div class="career-content">
+                        <p><img src="p1.png"><br><br>Prior experience optional<br>
+                            Build job-ready skills, even if you’re new to the field.
+                            <br><br>2,284,150<br>job openings across entry-level Professional Certificate fields</p>
+                    </div>
+                </div>
+                <div class="career-grid">
+                    <div class="career-content">
+                        <p><img src="p2.png"><br><br>Earn a valuable credential<br>
+                            Apply your new skills to real-world projects using the latest industry tools and techniques.<br>
+                            <br>4.7 / 5<br>average rating given by 200,000+ global learners enrolled in an entry-level <br>Professional Certificate²</p>
+                    </div>
+                </div>
+                <div class="career-grid">
+                    <div class="career-content">
+                        <p><img src="p3.png"><br><br>Learn at your own pace<br>Complete the training in less than 6 months while working a full-time job.<br><br>Under 10 hours<br>
+                        of flexible study per week³</p>
+                    </div>
+                </div>
+                <br><br>
+                    <h1>We collaborate with <a href="#career">325+ leading universities and companies</a></h1>
+                    <button class="button"><a href="#degree" class="button">Learn More</a></button>            
+                </div>
+        </div>
+    </section>
+    <section id="feedback">
+        <div class="container">
+            <h2>Feedback</h2>
+            <form id="feedback-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <br><label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <br><label for="message">Message:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+                <br><br><button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CourseStudy. All rights reserved.</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

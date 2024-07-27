@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Weather App task 5</title>
+    <style>
+        body{
+            background-color: whitesmoke;
+        }
+    nav{
+    padding:10px;
+    margin:0px;
+    background-color: black;
+    color:white;
+    width:auto;
+    text-align: center;
+    border-radius: 100px;
+    }
+        .container{
+            align-items: center;      
+            padding: 40px;
+            background-color:white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            height: 150px;
+            border-radius: 30px;
+            margin: auto;
+            margin-top: 10%;
+        }
+        #weather {
+            display: none;
+            border: 1px solid #000;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        #error {
+            color: red;
+            margin-top: 10px;
+        }
+        #loading {
+            display: none;
+            margin-top: 10px;
+        }
+        input{
+            margin-bottom:40px;
+            padding:8px;
+        }
+        #searchButton{
+            padding:5px;
+            background-color: rgb(79, 79, 255);
+            border:transparent;
+            border-radius: 30px;
+            padding:8px;
+            color:white;
+            align-items: center;
+            text-align: center;
+        } 
+        #searchButton:hover{
+            background-color: rgb(15, 15, 255);
+            color:white;
+        }
+        label{
+            text-align: left;
+            padding:5p
+        }  
+    </style>
+</head>
+<body>
+    <nav>
+        <h1> Weather App </h1>
+    </nav>
+    <div class="container">
+    <label for="name">City Name:</label><br>
+    <br>
+    <input type="text" id="cityInput" placeholder="Enter city name">
+    <button id="searchButton">Get Weather</button>
+
+    <div id="loading">Loading...</div>
+    <div id="error"></div>
+    <div id="weather">
+        <h2 id="cityName"></h2>
+        <p id="temperature"></p>
+        <p id="description"></p>
+    </div></div>
+    <script>
+        const apiKey = '6c86ca308e329b3261fb1cae140b24ef';
+        const weatherContainer = document.getElementById('weather');
+        const cityNameElement = document.getElementById('cityName');
+        const temperatureElement = document.getElementById('temperature');
+        const descriptionElement = document.getElementById('description');
+        const cityInput = document.getElementById('cityInput');
+        const searchButton = document.getElementById('searchButton');
+        const errorElement = document.getElementById('error');
+        const loadingElement = document.getElementById('loading');
+
+        searchButton.addEventListener('click', () => {
+            const city = cityInput.value.trim();
+            if (city) {
+                getWeather(city);
+            } else {
+                errorElement.textContent = 'Please enter a city name';
+            }
+        });
+
+        async function getWeather(city) {
+            loadingElement.style.display = 'block';
+            weatherContainer.style.display = 'none';
+            errorElement.textContent = '';
+
+            const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+            try {
+                const response = await fetch(apiURL);
+                const data = await response.json();
+                if (data.cod === 200) {
+                    updateWeather(data);
+                } else {
+                    errorElement.textContent = 'City not found';
+                }
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+                errorElement.textContent = 'Error fetching weather data. Please try again later.';
+            } finally {
+                loadingElement.style.display = 'none';
+            }
+        }
+
+        function updateWeather(data) {
+            const { name } = data;
+            const { temp } = data.main;
+            const { description } = data.weather[0];
+
+            cityNameElement.textContent = name;
+            temperatureElement.textContent = `Temperature: ${temp}°C`;
+            descriptionElement.textContent = `Description: ${description}`;
+
+            weatherContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

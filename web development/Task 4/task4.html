@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Portfolio Task 4</title>
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 12px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 100px 0;
+    border-radius: 100px;
+}
+
+h2 {
+    color: #111;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#Home .container {
+    width: 100%;
+    background-color: #4c4cff;
+    margin-left: 40px;
+    padding: 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5252ff;
+    gap: 80px;
+    padding: 50px;
+    color: rgb(14, 6, 6);
+}
+
+.about-text h2 {
+    color: white;
+    text-align: left;
+}
+
+.about-text {
+    max-width: 600px;
+    text-align: left;
+    color: white;
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+#about p {
+    text-align: left;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.projects-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: center;
+    margin: 10px;
+    width: 300px;
+    transition: background-color 0.4s;
+}
+.project:hover{
+    margin:5px 5px 0px 0px;
+}
+.project h3{
+    margin:5px;
+}
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #888;
+    border-radius: 4px;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .socials {
+    margin-top: 10px;
+}
+
+footer .socials a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+footer .socials a:hover {
+    color: #ddd;
+}
+    </style>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    alert(`Thank you, ${name}! Your message has been sent.`);
+    event.target.reset();
+});
+
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#Tasks">Tasks</a></li>
+                    <li><a href="#Feedback">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="Home">
+        <div class="container">
+            <div class="about-content">
+                <img src="profile.png" alt="Profile Picture" class="profile-pic">
+                <div class="about-text">
+                    <h3 style="color:white">Hello, It's Me</h3><br> 
+                    <h2>Ravi Kumar</h2>
+                    <h3>And I'm a Web Developer.</h3><br> 
+                    <h4>Welcome to my portfolio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam enim sequi fugiat ad beatae nesciunt</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Tasks">
+        <div class="container">
+            <h2>Tasks</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <img src="images/project1.jpg" alt="Task 1 Image">
+                    <h3>Task 1</h3>
+                    <p>Responsive Landing Page.</p>
+                </div>
+                <div class="project">
+                    <img src="images/project2.jpg" alt="Task 2 Image">
+                    <h3>Task 2</h3>
+                    <p>Stopwatch Application.</p>
+                </div>
+                <div class="project">
+                    <img src="images/project3.jpg" alt="Task 3 Image">
+                    <h3>Task 3</h3>
+                    <p>Tic-Tac-Toe Web Application.</p>
+                </div>
+                <div class="project">
+                    <img src="images/project4.jpg" alt="Task 3 Image">
+                    <h3>Task 4</h3>
+                    <p>Personal Portfolio Website.</p>
+                </div>
+            </div>
+                <div class="project">
+                    <img src="images/project5.jpg" alt="Task 3 Image">
+                    <h3>Task 5</h3>
+                    <p>Weather App.</p>
+                
+            </div>
+        </div>
+    </section>
+    <section id="Feedback">
+        <div class="container">
+            <h2>Feedback</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; Ravi Kumar P. All rights reserved.</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
